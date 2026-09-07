@@ -184,8 +184,8 @@
     if (results.length) {
       html += '<div class="score-row">';
       html += '<span class="chip gap">' + sc.gaps + " gaps</span>";
-      html += '<span class="chip warn">' + sc.weak + " weak</span>';
-      html += '<span class="chip ok">' + sc.ok + " found</span>';
+      html += '<span class="chip warn">' + sc.weak + " weak</span>";
+      html += '<span class="chip ok">' + sc.ok + " found</span>";
       html += "</div>";
       html += renderRows(results);
     }
