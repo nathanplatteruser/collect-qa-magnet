@@ -11,9 +11,9 @@
 
   var PILOT = "https://buy.stripe.com/dRm00j0GG53F8dVfO17Vm03";
   var PACK_MAIL =
-    "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20pack%20%2429&body=I%20ran%20the%20demo%20checklist%20and%20want%20a%20paid%20pack%20report%20(%2429).%0A%0ANot%20legal%20advice%20requested.";
+    "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20pack%20%2429&body=I%20ran%20the%20demo%20checklist%20and%20want%20a%20paid%20pack%20report%20(%2429).%0A%0ANot%20legal%20advice%20requested.";
   var SEAT_MAIL =
-    "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20module%20attach&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20";
+    "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20Seat%20module%20attach&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20";
 
   function normalize(text) {
     return (text || "").replace(/\r\n/g, "\n");

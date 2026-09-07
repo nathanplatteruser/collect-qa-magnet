@@ -1,0 +1,135 @@
+/**
+ * Nathan Platter brand system — Platter Gate
+ * P0 tokens · 2026-09-07 · Brand & Messaging · SoT stamp: 2026-09-07T14:29Z
+ * Apply to hub, SettleUp booth, suite Pages. NOT Grok Bot / Geist defaults.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap');
+
+:root {
+  /* ——— Surfaces: Paper (public Pages / leave-behinds) ——— */
+  --np-paper: #f4f1ea;
+  --np-paper-2: #ebe6dc;
+  --np-paper-3: #e2dcd0;
+  --np-paper-ink: #12110f;
+  --np-paper-ink-2: #3a3732;
+  --np-paper-ink-3: #6b655c;
+  --np-paper-mute: #8a8378;
+  --np-paper-line: #d4cec2;
+  --np-paper-line-strong: #b8b0a2;
+
+  /* ——— Surfaces: Console (SettleUp booth / ops) ——— */
+  --np-console: #07090f;
+  --np-console-2: #0c1018;
+  --np-console-3: #121826;
+  --np-console-4: #1a2233;
+  --np-console-fg: #eef2f8;
+  --np-console-muted: #94a3b8;
+  --np-console-bright: #e2e8f0;
+
+  /* ——— Semantic: Gate (refuse / pass / warn) ——— */
+  --np-refuse: #dc2626;
+  --np-refuse-soft: #f87171;
+  --np-refuse-muted: #7f1d1d;
+  --np-refuse-glow: rgba(220, 38, 38, 0.22);
+  --np-pass: #16a34a;
+  --np-pass-soft: #4ade80;
+  --np-pass-muted: #14532d;
+  --np-warn: #b45309;
+  --np-warn-soft: #fbbf24;
+  --np-warn-muted: #78350f;
+
+  /* ——— Brand accent: Platter Steel (not Tailwind blue default) ——— */
+  --np-steel: #2f4a6e;
+  --np-steel-bright: #4a6fa0;
+  --np-steel-soft: #8eb0d4;
+  --np-steel-muted: #1a2d47;
+
+  /* ——— Roles (booth switcher) ——— */
+  --np-role-admin: #2f4a6e;
+  --np-role-contributor: #3d5c3a;
+  --np-role-compliance: var(--np-refuse-muted); /* refuse-muted — NOT warn amber */
+
+  /* ——— Type ——— */
+  --np-font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --np-font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --np-font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  /* ——— Shape / depth ——— */
+  --np-radius: 2px;
+  --np-radius-card: 4px;
+  --np-shadow-paper: 0 1px 0 rgba(18, 17, 15, 0.04), 0 18px 40px -28px rgba(18, 17, 15, 0.35);
+  --np-shadow-refuse: 0 0 24px var(--np-refuse-glow);
+  --np-max: 720px;
+  --np-wide: 960px;
+  --np-tap: 44px;
+
+  /* ——— Aliases for sibling ink.css migration ——— */
+  --paper: var(--np-paper);
+  --paper-2: var(--np-paper-2);
+  --paper-3: var(--np-paper-3);
+  --ink: var(--np-paper-ink);
+  --ink-2: var(--np-paper-ink-2);
+  --ink-3: var(--np-paper-ink-3);
+  --ink-mute: var(--np-paper-mute);
+  --line: var(--np-paper-line);
+  --line-strong: var(--np-paper-line-strong);
+  --ok: var(--np-pass);
+  --ok-soft: #e4ecdf;
+  --warn: var(--np-warn);
+  --warn-soft: #f3ead8;
+  --gap: var(--np-refuse-muted);
+  --gap-soft: #f0e4e1;
+  --mark: var(--np-paper-ink);
+  --font-display: var(--np-font-display);
+  --font-sans: var(--np-font-sans);
+  --font-mono: var(--np-font-mono);
+  --shadow: var(--np-shadow-paper);
+  --radius: var(--np-radius);
+  --max: var(--np-max);
+  --wide: var(--np-wide);
+  --tap: var(--np-tap);
+}
+
+/* Utility: suite chip SettleUp + MODULE */
+.np-suite-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--np-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.np-suite-chip-brand { font-weight: 600; color: var(--np-paper-ink); }
+.np-suite-chip-mod {
+  border: 1px solid var(--np-paper-line-strong);
+  padding: 0.12rem 0.4rem;
+  color: var(--np-paper-ink-3);
+}
+
+/* Role pills (booth) */
+.np-role-pill {
+  font-family: var(--np-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--np-radius);
+  border: 1px solid transparent;
+}
+.np-role-pill[data-role="admin"] {
+  background: var(--np-steel-muted);
+  color: var(--np-steel-soft);
+  border-color: var(--np-steel);
+}
+.np-role-pill[data-role="contributor"] {
+  background: var(--np-pass-muted);
+  color: var(--np-pass-soft);
+  border-color: var(--np-pass);
+}
+.np-role-pill[data-role="compliance"] {
+  background: var(--np-refuse-muted);
+  color: var(--np-refuse-soft);
+  border-color: var(--np-refuse-muted);
+}

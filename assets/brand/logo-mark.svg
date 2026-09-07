@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nathan Platter / Platter Analytics mark">
+  <title>Platter Gate mark</title>
+  <!-- Gate frame -->
+  <rect x="4" y="4" width="56" height="56" rx="2" fill="#12110f"/>
+  <rect x="8" y="8" width="48" height="48" rx="1" fill="#f4f1ea"/>
+  <!-- N stem left -->
+  <path d="M18 46V18h5.2l12.6 18.8V18H46v28h-5.2L28.2 27.2V46H18z" fill="#12110f"/>
+  <!-- Refuse tick: small gate latch in steel -->
+  <rect x="46" y="14" width="6" height="6" fill="#2f4a6e"/>
+</svg>

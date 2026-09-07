@@ -1,31 +1,14 @@
-/* COLLECT QA — premium quiet editorial paper/ink (LotBeacon / Both Sides family) */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap');
+/* Nathan Brand SoT — Platter Gate paper theme (P1 re-skin 2026-09-07) */
+@import url('./brand/tokens.css');
 
 :root {
-  --paper: #f4f1ea;
-  --paper-2: #ebe6dc;
-  --paper-3: #e2dcd0;
-  --ink: #12110f;
-  --ink-2: #3a3732;
-  --ink-3: #6b655c;
-  --ink-mute: #8a8378;
-  --line: #d4cec2;
-  --line-strong: #b8b0a2;
-  --ok: #3d5c3a;
-  --ok-soft: #e4ecdf;
-  --warn: #7a5a28;
-  --warn-soft: #f3ead8;
-  --gap: #6b3a32;
-  --gap-soft: #f0e4e1;
-  --mark: #1a1916;
-  --shadow: 0 1px 0 rgba(18,17,15,0.04), 0 18px 40px -28px rgba(18,17,15,0.35);
-  --radius: 2px;
-  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-  --max: 720px;
-  --wide: 960px;
+  /* Local demo extras on top of Nathan Brand SoT aliases */
+  --gap-loud: #5a2e28;
+  --safe: env(safe-area-inset-bottom, 0px);
 }
+
+/* COLLECT QA — premium quiet editorial paper/ink (LotBeacon / Both Sides family) */
+
 
 *, *::before, *::after { box-sizing: border-box; }
 html { color-scheme: light; -webkit-font-smoothing: antialiased; }
@@ -544,3 +527,54 @@ textarea:focus-visible, button:focus-visible, a:focus-visible {
   .watermark span { color: rgba(0,0,0,0.12); }
   .desk { grid-template-columns: 1fr; }
 }
+
+
+/* Brand P1 — steel primary CTA (not ink fill / not Tailwind blue) */
+.btn {
+  border-color: var(--np-steel);
+  background: var(--np-steel);
+  color: var(--np-paper);
+}
+.btn:hover {
+  background: var(--np-steel-muted);
+  border-color: var(--np-steel-muted);
+  color: var(--np-paper);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+.btn-ghost:hover {
+  background: var(--paper-2);
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+.mark .np-logo {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  display: block;
+}
+.mark { align-items: center; gap: 0.55rem; }
+.suite-chip-mod { color: var(--np-steel) !important; }
+.price-card--primary {
+  border-color: var(--np-steel) !important;
+  box-shadow: var(--shadow), 0 0 0 4px color-mix(in srgb, var(--np-steel) 14%, transparent);
+}
+.work-card .chip.live {
+  background: var(--np-steel);
+  border-color: var(--np-steel);
+  color: var(--np-paper);
+}
+
+.suite-chip{
+  display:inline-flex;align-items:center;gap:.35rem;
+  margin:0 0 1rem;padding:.4rem .7rem;min-height:44px;
+  border:1px solid var(--line-strong);border-radius:999px;
+  background:#fffefb;font-family:var(--font-mono);font-size:.72rem;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);
+}
+.suite-chip-brand{font-weight:600;color:var(--ink)}
+.suite-chip-plus{opacity:.45}
+.suite-chip-mod{font-weight:600;color:var(--np-steel)}

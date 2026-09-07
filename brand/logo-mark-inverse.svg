@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nathan Platter mark inverse">
+  <title>Platter Gate mark (console)</title>
+  <rect x="4" y="4" width="56" height="56" rx="2" fill="#eef2f8"/>
+  <rect x="8" y="8" width="48" height="48" rx="1" fill="#07090f"/>
+  <path d="M18 46V18h5.2l12.6 18.8V18H46v28h-5.2L28.2 27.2V46H18z" fill="#eef2f8"/>
+  <rect x="46" y="14" width="6" height="6" fill="#dc2626"/>
+</svg>
