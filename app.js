@@ -13,7 +13,7 @@
   var PACK_MAIL =
     "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20pack%20%2429&body=I%20ran%20the%20demo%20checklist%20and%20want%20a%20paid%20pack%20report%20(%2429).%0A%0ANot%20legal%20advice%20requested.";
   var SEAT_MAIL =
-    "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20%24249%2Fmo&body=I%20want%20to%20inquire%20about%20a%20COLLECT%20QA%20Seat%20(%24249%2Fmo).%0A%0ACompany%3A%20%0AContact%3A%20";
+    "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20module%20attach&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20";
 
   function normalize(text) {
     return (text || "").replace(/\r\n/g, "\n");
@@ -22,17 +22,17 @@
   function aisleHtml() {
     var html = "";
     html += '<div class="cta-aisle">';
-    html += '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · aisle · pack is funnel</div>';
+    html += '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · pack funnel · Pilot aisle</div>';
     html += '<div class="amount">Unlock pack $29</div>';
     html +=
-      '<p class="small muted" style="margin:0.4rem 0 0.85rem">Mailto for pack and Seat. Sibling Stripe <strong>HOLD</strong>. Every paid path closes on SettleUp Pilot $499.</p>';
+      '<p class="small muted" style="margin:0.4rem 0 0.85rem">Pack is the magnet funnel (mailto · Stripe <strong>HOLD</strong>). Seat is an optional add-on. Primary aisle is SettleUp Pilot $499.</p>';
     html += '<div class="btn-row" style="margin:0">';
     html += '<a class="btn btn-ghost" href="' + PACK_MAIL + '">Pack $29 (mailto)</a>';
-    html += '<a class="btn btn-ghost" href="' + SEAT_MAIL + '">Seat $249/mo (mailto)</a>';
     html +=
       '<a class="btn" href="' +
       PILOT +
       '" target="_blank" rel="noopener noreferrer">Add to Pilot aisle · $499</a>';
+    html += '<a class="btn btn-ghost" href="' + SEAT_MAIL + '">Seat module inquiry</a>';
     html += "</div></div>";
     return html;
   }

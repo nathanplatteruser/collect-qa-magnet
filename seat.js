@@ -17,7 +17,7 @@
   var PACK_MAIL =
     "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20pack%20%2429&body=I%20want%20a%20COLLECT%20QA%20pack%20(%2429).%0A%0ANot%20legal%20advice%20requested.";
   var SEAT_MAIL =
-    "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20%24249%2Fmo&body=I%20want%20to%20inquire%20about%20a%20COLLECT%20QA%20Seat%20(%24249%2Fmo).%0A%0ACompany%3A%20%0AContact%3A%20";
+    "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20module%20attach&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20";
 
   var activeId = "";
   var lastResults = [];
@@ -144,18 +144,18 @@
   function aisleHtml() {
     return (
       '<div class="cta-aisle no-print">' +
-      '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · add to Pilot aisle</div>' +
-      "<p class=\"small muted\" style=\"margin:0 0 0.75rem\">Pack $29 and Seat $249/mo are mailto (sibling Stripe HOLD). Live checkout is SettleUp Pilot.</p>" +
+      '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · add-on module · Pilot aisle</div>' +
+      "<p class=\"small muted\" style=\"margin:0 0 0.75rem\">Primary: add this hygiene module to SettleUp Pilot. Seat inquiry is optional. Pack $29 is mailto (magnet Stripe HOLD).</p>" +
       '<div class="btn-row" style="margin:0">' +
-      '<a class="btn btn-ghost" href="' +
-      PACK_MAIL +
-      '">Pack $29 (mailto)</a>' +
-      '<a class="btn btn-ghost" href="' +
-      SEAT_MAIL +
-      '">Seat $249/mo (mailto)</a>' +
       '<a class="btn" href="' +
       PILOT +
       '" target="_blank" rel="noopener noreferrer">Add to Pilot aisle · $499</a>' +
+      '<a class="btn btn-ghost" href="' +
+      SEAT_MAIL +
+      '">Seat module inquiry</a>' +
+      '<a class="btn btn-ghost" href="' +
+      PACK_MAIL +
+      '">Pack $29 (mailto)</a>' +
       "</div></div>"
     );
   }
@@ -168,7 +168,7 @@
     html += '<div class="report-head">';
     html += "<div><strong>Seat blotter · itemization / validation hygiene</strong>";
     html +=
-      '<div class="report-meta">Heuristic · not legal advice · not a dispute-letter gate</div></div>';
+      '<div class="report-meta">Heuristic · not legal advice · attaches to Pilot refuse-gate</div></div>';
     html += '<div class="report-meta">' + meta + "</div>";
     html += "</div>";
     if (verdict) {

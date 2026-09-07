@@ -1,38 +1,43 @@
-# COLLECT QA — lead-magnet MVP + Seat (SU-SIB-1)
+# COLLECT QA — lead-magnet MVP + Seat module (SU-SIB-1)
 
-**TAIL / COLLECT** · SettleUp suite sibling · funnel toward SettleUp Collections (Level-4).
+**TAIL / COLLECT** · SettleUp suite **add-on module** · attaches to SettleUp Pilot (Level-4).
 
 Cited checklist gap report for debt-collection **validation notice** drafts, framed against public Reg&nbsp;F sources (12&nbsp;CFR&nbsp;1006.34 / Model Form&nbsp;B-1). **Not legal advice. Not a compliant-letter product.**
 
-Pain = **outbound validation-notice / itemization hygiene**. Not the SettleUp inbound dispute-letter refuse-gate.
+**48h Denver framing:** siblings are SettleUp suite modules (add-to-cart) first; optional standalone second. Convergence over purity.
 
-## SU-SIB-1 — Seat productization
+Pain = **outbound validation-notice / itemization hygiene**, attached to the Pilot refuse-gate. Seat does not replace Pilot.
+
+## SU-SIB-1 — Seat as Pilot add-on
 
 Monthly **Seat** desk at [`/seat/`](https://nathanplatteruser.github.io/collect-qa-magnet/seat/) (GitHub Pages path). Paper/ink blotter matching this magnet. HITL on exceptions. Loud **REFUSE** / GAP when facts are missing (refuse-over-hallucinate).
 
-| SKU | Path | Checkout |
+The Seat **surface is the module-attach story**. Primary CTA is add-to-cart on the Pilot aisle. Seat mailto is optional inquiry. Pack magnet stays the $29 funnel.
+
+| SKU | Role | Checkout |
 |-----|------|----------|
-| Pack **$29** | Magnet funnel | mailto `settleupcollections@polsia.app` |
-| Seat **$249/mo** | Suite module (band was $199–399; feature $249) | mailto inquiry — sibling Stripe **HOLD** |
-| SettleUp Pilot **$499** | Handoff / add-to-cart aisle | live [Pilot Payment Link](https://buy.stripe.com/dRm00j0GG53F8dVfO17Vm03) |
+| Pack **$29** | Magnet funnel | mailto `settleupcollections@polsia.app` — magnet Stripe **HOLD** |
+| Seat **$249/mo** | Optional add-on module (band was $199–399) | mailto inquiry — not a competing product |
+| SettleUp Pilot **$499** | Primary aisle / add-to-cart | live [Pilot Payment Link](https://buy.stripe.com/dRm00j0GG53F8dVfO17Vm03) |
 
-**Sibling Stripe HOLD.** No COLLECT pack or Seat Payment Link. Every paid CTA closes on Pilot Stripe.
+**Magnet Stripe HOLD** on the $29 pack. No COLLECT pack or Seat Payment Link. Live Stripe is Pilot only.
 
-### Soft ROI (labeled assumption only — not a kill claim)
+### Soft ROI (pricing block only — labeled assumption, not a kill claim)
 
 - Seat ROT: 6h × $65/hr = $390 desk time vs $249/mo → about **1.6×**
 - A **3×** claim only if about **12h/month** are actually saved
+- Do not put ROI multipliers in the magnet hero or Seat lede
 
 ### MVP Eng tickets
 
 - **CQ-01** upload — paste or `.txt` (PDF refused; we do not parse binaries)
 - **CQ-02** checklist UI — cited Reg F gaps
 - **CQ-03** HITL exception tray + print/PDF export
-- **CQ-04** CTAs — pack mailto / seat mailto / Pilot Stripe
+- **CQ-04** CTAs — pack mailto / seat module inquiry / Pilot Stripe (primary)
 
 ### Out of MVP
 
-AMS write-back · auto-send · CFPB-approved claims · magnet/Seat Stripe
+AMS write-back · auto-send · CFPB-approved claims · magnet/Seat Stripe · presenting Seat as a competing product
 
 ## Run locally
 
@@ -41,16 +46,16 @@ No build step. From this folder:
 ```bash
 python3 -m http.server 8765
 # open http://127.0.0.1:8765/
-# Seat desk: http://127.0.0.1:8765/seat/
+# Seat module desk: http://127.0.0.1:8765/seat/
 ```
 
 ## Pages
 
 | File | Role |
 |------|------|
-| `index.html` | Landing — magnet hero, rails, Seat module, SKUs |
+| `index.html` | Landing — magnet hero, rails, Seat attach story, SKUs |
 | `app.html` | Pack tool — paste / upload / sample → watermarked gap checklist |
-| `seat/index.html` | Monthly Seat desk — queue, blotter, HITL, PDF |
+| `seat/index.html` | Module desk — queue, blotter, HITL, PDF, Pilot add-to-cart |
 | `styles.css` | Paper/ink editorial (LotBeacon / Both Sides family) |
 | `checklist.js` | Shared Reg F heuristic + refuse verdict |
 | `app.js` / `seat.js` | Pack vs Seat shells |
@@ -68,11 +73,11 @@ python3 -m http.server 8765
 - Not “CFPB-approved” or “compliant letter”
 - Not an AMS replacement (no write-back)
 - Not auto-send / no consumer mail
-- Not the SettleUp dispute-letter gate
-- Sibling Stripe HOLD (Pilot link is the only live Stripe)
+- Seat **attaches** to the Pilot refuse-gate — does not replace it
+- Magnet Stripe HOLD on pack (Pilot link is the only live Stripe)
 
 ## Publish
 
 Live magnet: https://nathanplatteruser.github.io/collect-qa-magnet/
 
-Seat: https://nathanplatteruser.github.io/collect-qa-magnet/seat/
+Seat module: https://nathanplatteruser.github.io/collect-qa-magnet/seat/
