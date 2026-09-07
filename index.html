@@ -1,160 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>COLLECT QA — Cited checklist for collection validation notices</title>
-  <meta name="description" content="Paste a validation-notice draft. Get a watermarked gap checklist vs Reg F model-notice framing. Not legal advice. $19–49 pack." />
-  <meta name="robots" content="index,follow" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1220">
+<title>COLLECT QA · Reg F validation-notice checklist (demo)</title>
+<meta name="description" content="Phone-first educational demo: paste or load a synthetic validation notice → cited Reg F checklist gap report. Not legal advice.">
+<style>
+:root{
+  --bg:#0b1220;--card:#121a2b;--line:#243049;--ink:#e8eefc;--muted:#9aa8c7;
+  --accent:#5b8cff;--ok:#3dd68c;--warn:#f5a524;--bad:#ff6b6b;
+  --chip:#1a2438;--safe:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  touch-action:manipulation}
+.wrap{max-width:430px;margin:0 auto;min-height:100dvh;
+  padding:12px 12px calc(20px + var(--safe));display:flex;flex-direction:column;gap:10px}
+header.top{padding:8px 4px 2px}
+header.top h1{margin:0;font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px}
+.mark{width:28px;height:28px;border-radius:8px;background:var(--accent);
+  display:grid;place-items:center;font-size:11px;font-weight:900;color:#fff;flex-shrink:0}
+.sub{color:var(--muted);font-size:13px;margin-top:4px}
+.rules{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pill{font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;
+  background:var(--chip);border:1px solid var(--line);color:var(--muted)}
+.pill.warn{color:var(--warn);border-color:#5a4518}
+.pill.ok{color:var(--ok);border-color:#1f4d3a}
+.filters{position:sticky;top:0;z-index:5;background:rgba(11,18,32,.94);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 0;
+  display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;min-width:44px;padding:10px 12px;border-radius:999px;
+  border:1px solid var(--line);background:var(--chip);color:var(--ink);
+  font-size:14px;font-weight:700;cursor:pointer;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip:disabled{opacity:.4;cursor:not-allowed}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;display:none}
+.card.on{display:block}
+.card h2{margin:0 0 6px;font-size:16px}
+.meta{color:var(--muted);font-size:13px;margin-bottom:10px}
+.step{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:6px}
+.actions{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.btn{min-height:48px;border-radius:12px;border:1px solid var(--line);background:var(--chip);
+  color:var(--ink);font-size:16px;font-weight:800;padding:12px 14px;cursor:pointer;
+  touch-action:manipulation;text-align:center;text-decoration:none;display:block}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:transparent}
+.letter{width:100%;min-height:180px;border-radius:12px;border:1px solid var(--line);
+  background:#0a101c;color:var(--ink);padding:12px;font-size:14px;line-height:1.5;
+  resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.check-list{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:12px;border-radius:12px;
+  background:#152033;border:1px solid var(--line);font-size:14px}
+.check-item .box{width:22px;height:22px;border-radius:6px;border:2px solid var(--line);
+  flex-shrink:0;margin-top:1px;background:var(--chip)}
+.check-item.on .box{border-color:var(--accent);background:var(--accent)}
+.check-item .label{flex:1;font-weight:600}
+.check-item .cite-hint{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
+.gap-row{padding:12px;border-radius:12px;border:1px solid var(--line);background:#152033;margin-bottom:8px}
+.gap-row.gap{border-color:#5a1f2a;background:#2a1216}
+.gap-row.pass{border-color:#1f4d3a;background:#12261c}
+.gap-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.badge{font-size:11px;font-weight:900;letter-spacing:.04em;padding:4px 8px;border-radius:8px}
+.badge.gap{background:#3a1d10;color:#ffb080}
+.badge.pass{background:#143528;color:var(--ok)}
+.cite{display:inline-block;font-size:11px;font-weight:700;padding:4px 8px;border-radius:8px;
+  background:var(--chip);border:1px solid var(--line);color:var(--muted);margin:4px 4px 0 0}
+.gap-body{font-size:13px;color:var(--muted);margin-top:8px}
+.summary{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.stat{flex:1;min-width:90px;padding:10px;border-radius:12px;background:#152033;
+  border:1px solid var(--line);text-align:center}
+.stat b{display:block;font-size:22px;font-weight:900}
+.stat span{font-size:12px;color:var(--muted);font-weight:700}
+.stat.bad b{color:var(--bad)}
+.stat.ok b{color:var(--ok)}
+.lock-wrap{position:relative;margin-top:14px;border-radius:12px;overflow:hidden;
+  border:1px solid var(--line)}
+.lock-preview{padding:14px;filter:blur(5px);user-select:none;pointer-events:none;
+  opacity:.55;min-height:120px;background:#0a101c;font-size:13px;color:var(--muted);
+  white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.lock-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:10px;background:rgba(11,18,32,.72);padding:16px;text-align:center}
+.lock-overlay h3{margin:0;font-size:16px}
+.lock-overlay p{margin:0;font-size:13px;color:var(--muted);max-width:280px}
+.hold{margin-top:10px;padding:10px 12px;border-radius:12px;font-size:13px;
+  border:1px dashed var(--line);color:var(--muted);background:#152033}
+.banner{padding:10px 12px;border-radius:12px;font-size:12px;font-weight:700;
+  background:#1a2030;border:1px solid var(--line);color:var(--warn);text-align:center}
+.foot{color:var(--muted);font-size:12px;text-align:center;padding:8px 4px 0}
+.toast{position:fixed;left:50%;bottom:calc(24px + var(--safe));transform:translateX(-50%);
+  background:#1a2438;border:1px solid var(--line);color:var(--ink);padding:10px 16px;
+  border-radius:999px;font-size:13px;font-weight:700;opacity:0;pointer-events:none;
+  transition:opacity .2s;z-index:20;max-width:90vw}
+.toast.on{opacity:1}
+.row-btns{display:flex;gap:8px;flex-wrap:wrap}
+.row-btns .btn{flex:1;min-width:140px}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="inner">
-      <a class="mark" href="index.html">COLLECT QA <span class="code">TAIL / COLLECT</span></a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#how">How it works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="app.html">Try sample</a>
-      </nav>
+<div class="wrap">
+  <header class="top">
+    <h1><span class="mark">CQ</span> COLLECT QA</h1>
+    <div class="sub">Reg F validation-notice gap checklist · educational overlay demo</div>
+    <div class="rules">
+      <span class="pill warn">Not legal advice</span>
+      <span class="pill">Educational demo</span>
+      <span class="pill ok">Synthetic letter</span>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <p class="eyebrow">Lead magnet · QA checklist · not counsel</p>
-        <h1>Cited gaps on your validation notice — before you send.</h1>
-        <p class="lede">
-          Paste a draft validation notice (or load our synthetic sample). COLLECT QA runs a
-          <em>public-source checklist</em> against Reg&nbsp;F / 12&nbsp;CFR&nbsp;1006 model-notice framing
-          and returns labeled gaps with cite pins. Your send. Your license. Your risk.
-        </p>
-        <div class="btn-row">
-          <a class="btn" href="app.html">Open free sample report</a>
-          <a class="btn btn-ghost" href="#pricing">Buy a pack · $19–49</a>
-        </div>
-      </div>
-    </section>
+  <div class="banner" role="note">Not legal advice · educational demo · synthetic letter</div>
 
-    <section class="section" id="rails">
-      <div class="wrap">
-        <div class="rail">
-          <strong>Hard rails.</strong>
-          This is a checklist QA tool — <strong>not legal advice</strong>, not a “compliant letter,”
-          not CFPB approval, not autodial, not skip-trace, and not a SettleUp replacement.
-          We do not send consumer mail. Statute/reg maps are research framing for gap spotting only.
-        </div>
-      </div>
-    </section>
+  <div class="filters" role="toolbar" aria-label="Demo steps">
+    <button type="button" class="chip" data-step="sample" aria-pressed="true">1 Sample</button>
+    <button type="button" class="chip" data-step="checklist" aria-pressed="false" id="chip2" disabled>2 Checklist</button>
+    <button type="button" class="chip" data-step="gaps" aria-pressed="false" id="chip3" disabled>3 Gaps</button>
+    <button type="button" class="chip" data-step="unlock" aria-pressed="false" id="chip4" disabled>4 Unlock</button>
+  </div>
 
-    <section class="section" id="how">
-      <div class="wrap">
-        <p class="eyebrow">How it works</p>
-        <h2>Upload-ish → checklist → report</h2>
-        <div class="grid-2" style="margin-top:1.25rem">
-          <div class="panel">
-            <h3>1. Paste or sample</h3>
-            <p class="small muted">Drop validation-notice text into the browser tool. Or load the synthetic sample letter — no account, no upload server.</p>
-          </div>
-          <div class="panel">
-            <h3>2. Gap checklist</h3>
-            <p class="small muted">Heuristic scan vs items drawn from 12&nbsp;CFR&nbsp;1006.34 validation information and Model Form&nbsp;B-1 framing (eCFR). Each row carries a source label.</p>
-          </div>
-          <div class="panel">
-            <h3>3. Watermarked demo</h3>
-            <p class="small muted">Free sample reports are marked DEMO. Unlock a clean pack report via mailto checkout ($19–49) or Stripe placeholder when wired.</p>
-          </div>
-          <div class="panel">
-            <h3>4. Human still owns risk</h3>
-            <p class="small muted">Exceptions stay with your compliance officer / counsel. COLLECT QA does not practice law and does not claim the notice is compliant.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="sample">
-      <div class="wrap">
-        <p class="eyebrow">Sample</p>
-        <h2>See a corrected-document feel</h2>
-        <p class="lede" style="margin-bottom:1rem">The tool UI looks like a marked-up notice — paper, ink, cite labels — not neon SaaS chrome.</p>
-        <a class="btn" href="app.html?sample=1">Load synthetic letter → run checklist</a>
-      </div>
-    </section>
-
-    <section class="section" id="pricing">
-      <div class="wrap">
-        <p class="eyebrow">Price band · deliberately below SettleUp aisle</p>
-        <h2>Stranger checkout path</h2>
-        <p class="muted small" style="margin-bottom:1.25rem">
-          Kill rule: no stranger checkout by day&nbsp;7 → freeze magnet. SettleUp Level-4 remains the core product;
-          this pack is funnel / education only.
-        </p>
-        <div class="grid-2">
-          <div class="price-card">
-            <p class="eyebrow" style="margin:0">Free</p>
-            <div class="amount">Sample</div>
-            <p class="small muted">Watermarked demo report in-browser. Synthetic letter included.</p>
-            <ul>
-              <li>Paste or load sample</li>
-              <li>Cited gap rows (Reg F framing)</li>
-              <li>DEMO watermark on export view</li>
-            </ul>
-            <a class="btn btn-ghost" href="app.html">Try free sample</a>
-          </div>
-          <div class="price-card featured">
-            <p class="eyebrow" style="margin:0">Pack</p>
-            <div class="amount">$19–49</div>
-            <p class="small muted">One QA pack report (clean). Mailto settle today; Stripe link when live.</p>
-            <ul>
-              <li>Your notice text reviewed</li>
-              <li>Checklist PDF-style report (manual fulfill overnight)</li>
-              <li>No “compliant letter” claim — gaps + cites only</li>
-            </ul>
-            <a class="btn" id="checkout-mailto"
-               href="mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20pack%20%28%2419%E2%80%9349%29&body=Hi%20COLLECT%20QA%2C%0A%0AI%20want%20to%20buy%20a%20QA%20pack%20(%2419%E2%80%9349).%0A%0APreferred%20price%3A%20%24____%0ACompany%3A%20%0AContact%3A%20%0A%0APaste%20or%20attach%20validation-notice%20draft%20after%20we%20confirm%20payment.%0A%0A%E2%80%94%20Not%20legal%20advice%20requested.%0A">
-              Checkout via email
-            </a>
-            <a class="btn btn-ghost" id="checkout-stripe"
-               href="#stripe-placeholder"
-               title="Stripe Checkout placeholder — no live keys">
-              Stripe placeholder
-            </a>
-            <p class="small muted" id="stripe-placeholder" style="margin:0">
-              Stripe: replace with live Payment Link when keys exist.
-              Placeholder target: <span class="mono">https://buy.stripe.com/test_collect_qa_pack</span>
-              (not live). Mailto above is the working stranger path tonight.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="disclaimer">
-      <div class="wrap">
-        <div class="disclaimer-box">
-          <h3>Disclaimer</h3>
-          <p>
-            COLLECT QA is an educational / QA checklist product. It is <strong>not legal advice</strong>
-            and does not create an attorney–client relationship. Citations reference publicly available
-            materials (including the eCFR text of Regulation&nbsp;F, 12&nbsp;CFR&nbsp;part&nbsp;1006, and
-            Model Form&nbsp;B-1 framing). We do not invent effective dates; confirm current text on
-            <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1006" rel="noopener" target="_blank">eCFR</a>
-            before relying on any pin. Output is not a determination that a notice is compliant,
-            “CFPB-approved,” or safe to send. You remain responsible for your own compliance program,
-            licenses, and counsel review.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="inner">
-      <div><strong style="color:var(--ink)">COLLECT QA</strong> · Sassy Tail magnet · funnel toward SettleUp Collections</div>
-      <div>Contact: <a href="mailto:settleupcollections@polsia.app">settleupcollections@polsia.app</a></div>
-      <div>Not legal advice · No autodial · No compliant-letter claims · No LLC/domain theater</div>
+  <!-- STEP 1: Sample / paste -->
+  <section class="card on" id="sample" data-card="sample">
+    <div class="step">Load or paste a notice</div>
+    <h2>Validation notice text</h2>
+    <p class="meta">Use the synthetic sample, or paste your own draft. Nothing is uploaded — this demo runs in your browser only.</p>
+    <div class="row-btns">
+      <button type="button" class="btn primary" id="loadSample">Load sample notice</button>
+      <button type="button" class="btn ghost" id="clearLetter">Clear</button>
     </div>
-  </footer>
+    <textarea class="letter" id="letter" spellcheck="false" placeholder="Paste validation notice text here…" aria-label="Validation notice text"></textarea>
+    <div class="actions">
+      <button type="button" class="btn primary" id="toChecklist" disabled>Continue to checklist →</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: Checklist -->
+  <section class="card" id="checklist" data-card="checklist">
+    <div class="step">What we check against</div>
+    <h2>Reg F checklist (demo)</h2>
+    <p class="meta">Educational map to public Reg F validation-notice elements (12 CFR §1006.34). Not a compliance determination.</p>
+    <div class="check-list" id="checkList" aria-label="Checklist items"></div>
+    <div class="actions">
+      <button type="button" class="btn primary" id="runChecklist">Run checklist</button>
+      <button type="button" class="btn ghost" data-goto="sample">← Edit letter</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: Gaps -->
+  <section class="card" id="gaps" data-card="gaps">
+    <div class="step">Cited gap preview</div>
+    <h2>Gap report (partial)</h2>
+    <p class="meta">Synthetic findings for demo only. Short cites are educational pointers — not FDCPA opinions or counsel review.</p>
+    <div class="summary" id="gapSummary"></div>
+    <div id="gapList"></div>
+    <div class="actions">
+      <button type="button" class="btn primary" data-goto="unlock">See full report unlock →</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: Unlock -->
+  <section class="card" id="unlock" data-card="unlock">
+    <div class="step">Unlock full report</div>
+    <h2>Full cited report</h2>
+    <p class="meta">Preview is watermarked / blurred. Soft unlock via email — Stripe checkout is on HOLD for this magnet demo.</p>
+
+    <div class="lock-wrap" aria-label="Locked full report preview">
+      <div class="lock-preview" id="fullPreview" aria-hidden="true"></div>
+      <div class="lock-overlay">
+        <h3>Full report locked</h3>
+        <p>Itemization table · dispute-path notes · cite appendix · export-ready PDF layout</p>
+        <a class="btn primary" id="mailtoCta"
+           href="mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20full%20report&body=Hi%20%E2%80%94%20I%20ran%20the%20COLLECT%20QA%20demo%20and%20want%20to%20unlock%20the%20full%20cited%20gap%20report%20(%2429).">
+          Unlock full report $29
+        </a>
+      </div>
+    </div>
+
+    <div class="hold">
+      <b>Stripe checkout HOLD</b> — no live payment in this Pages demo.
+      Soft CTA uses mailto placeholder only. Price band for magnet packs: ~$19–49.
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn ghost" data-goto="gaps">← Back to gaps</button>
+      <button type="button" class="btn ghost" id="restart">Restart demo</button>
+    </div>
+  </section>
+
+  <p class="foot">COLLECT QA · Sassy Tail / Jared · Not legal advice · educational demo · synthetic letter<br>
+  Overlay checklist only — does not send consumer mail, replace counsel, or claim live FDCPA review.</p>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function () {
+  const SAMPLE = [
+    '*** SYNTHETIC DEMO LETTER — NOT A REAL CONSUMER NOTICE ***',
+    '',
+    'NORTHBRIDGE RECOVERY SERVICES',
+    'P.O. Box 00000 · Demo City, XX 00000',
+    'Phone: (555) 010-0199',
+    '',
+    'Date: March 3, 2026',
+    '',
+    'To: Jordan Example',
+    '123 Fictional Lane',
+    'Sampletown, ST 99999',
+    '',
+    'Re: Account referred for collection',
+    '',
+    'Dear Jordan Example,',
+    '',
+    'This is an attempt to collect a debt. Any information obtained will be used for that purpose.',
+    '',
+    'We are collecting a consumer debt. The amount of the debt is $1,284.50.',
+    'The creditor to whom the debt is owed is Demo Retail Card Co.',
+    '',
+    'Please contact us to discuss payment options.',
+    '',
+    'Sincerely,',
+    'Alex Rivera',
+    'Account Specialist',
+    'Northbridge Recovery Services',
+    '',
+    '*** END SYNTHETIC DEMO — fake consumer, fake balance, fake creditor ***'
+  ].join('\n');
+
+  /* Educational checklist — invent plausible synthetic gaps only */
+  const CHECKS = [
+    { id: 'amount', label: 'Amount of debt stated', cite: 'Reg F §1006.34(c)', hint: 'Debt amount as of itemization date' },
+    { id: 'creditor', label: 'Creditor name', cite: 'Reg F §1006.34(c)', hint: 'Name of creditor to whom debt is owed' },
+    { id: 'account', label: 'Account / reference number', cite: 'Reg F §1006.34 / MVN', hint: 'Account ref consumer can recognize' },
+    { id: 'validation', label: 'Validation rights language', cite: 'Reg F §1006.34(c)', hint: 'Dispute / verification rights statement' },
+    { id: 'itemization', label: 'Itemization date', cite: 'Reg F §1006.34(b)–(c)', hint: 'Itemization date + amount breakdown' },
+    { id: 'current_vs_orig', label: 'Current creditor vs original', cite: 'Reg F §1006.34(c)', hint: 'If different, identify current creditor' },
+    { id: 'dispute_addr', label: 'Dispute mailing address', cite: 'Reg F §1006.34(c)', hint: 'Address for written disputes' },
+    { id: 'ecomm', label: 'Electronic communication disclosure', cite: 'Reg F §1006.42 / §1006.6', hint: 'Opt-in / e-comm consent notice if applicable' }
+  ];
+
+  /* Synthetic results: 4 GAP, 4 PASS mapped to sample letter weaknesses */
+  const RESULTS = {
+    amount: { status: 'PASS', note: 'Amount $1,284.50 appears in the synthetic sample.' },
+    creditor: { status: 'PASS', note: 'Creditor name “Demo Retail Card Co.” is present.' },
+    account: { status: 'GAP', note: 'No account or reference number found for the consumer to match records.' },
+    validation: { status: 'GAP', note: 'Mini-Miranda present, but validation / dispute-rights block is missing or incomplete.' },
+    itemization: { status: 'GAP', note: 'No itemization date or itemization table (interest, fees, credits) detected.' },
+    current_vs_orig: { status: 'PASS', note: 'Single creditor named; no conflicting original/current labels in sample.' },
+    dispute_addr: { status: 'GAP', note: 'Letterhead address present, but no dedicated “write to dispute” address callout.' },
+    ecomm: { status: 'PASS', note: 'No electronic channel claimed in sample — e-comm disclosure N/A for this draft.' }
+  };
+
+  const letterEl = document.getElementById('letter');
+  const toChecklist = document.getElementById('toChecklist');
+  const checkList = document.getElementById('checkList');
+  const gapList = document.getElementById('gapList');
+  const gapSummary = document.getElementById('gapSummary');
+  const fullPreview = document.getElementById('fullPreview');
+  const toast = document.getElementById('toast');
+  const chips = {
+    sample: document.querySelector('[data-step="sample"]'),
+    checklist: document.getElementById('chip2'),
+    gaps: document.getElementById('chip3'),
+    unlock: document.getElementById('chip4')
+  };
+
+  let unlockedSteps = { sample: true, checklist: false, gaps: false, unlock: false };
+  let ran = false;
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('on');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => toast.classList.remove('on'), 1800);
+  }
+
+  function go(step) {
+    if (!unlockedSteps[step]) return;
+    document.querySelectorAll('.card').forEach(c => c.classList.toggle('on', c.dataset.card === step));
+    document.querySelectorAll('.filters .chip').forEach(ch => {
+      const s = ch.dataset.step;
+      ch.setAttribute('aria-pressed', s === step ? 'true' : 'false');
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function syncContinue() {
+    toChecklist.disabled = !letterEl.value.trim();
+  }
+
+  function renderChecklist() {
+    checkList.innerHTML = CHECKS.map(c =>
+      `<div class="check-item on" data-id="${c.id}">
+        <div class="box" aria-hidden="true"></div>
+        <div class="label">${c.label}
+          <span class="cite-hint">${c.hint} · ${c.cite}</span>
+        </div>
+      </div>`
+    ).join('');
+  }
+
+  function runReport() {
+    ran = true;
+    unlockedSteps.gaps = true;
+    unlockedSteps.unlock = true;
+    chips.gaps.disabled = false;
+    chips.unlock.disabled = false;
+
+    let gaps = 0, passes = 0;
+    const rows = CHECKS.map(c => {
+      const r = RESULTS[c.id];
+      if (r.status === 'GAP') gaps++; else passes++;
+      return { ...c, ...r };
+    });
+
+    gapSummary.innerHTML =
+      `<div class="stat bad"><b>${gaps}</b><span>GAPs</span></div>` +
+      `<div class="stat ok"><b>${passes}</b><span>PASS</span></div>` +
+      `<div class="stat"><b>${CHECKS.length}</b><span>Checked</span></div>`;
+
+    gapList.innerHTML = rows.map(r =>
+      `<div class="gap-row ${r.status.toLowerCase()}">
+        <div class="gap-head">
+          <strong>${r.label}</strong>
+          <span class="badge ${r.status.toLowerCase()}">${r.status}</span>
+        </div>
+        <span class="cite">${r.cite}</span>
+        <div class="gap-body">${r.note}</div>
+      </div>`
+    ).join('');
+
+    const lockedBody = [
+      'COLLECT QA · FULL CITED REPORT (LOCKED PREVIEW)',
+      '==============================================',
+      'File: synthetic-validation-notice-demo.txt',
+      'Engine: educational Reg F checklist overlay',
+      '',
+      'ITEMIZATION TABLE (blurred)',
+      '  Principal ........ $????.??',
+      '  Interest ......... $????.??',
+      '  Fees ............. $????.??',
+      '  Credits .......... $????.??',
+      '  Amount of debt ... $1,284.50',
+      '',
+      'DISPUTE PATH NOTES (blurred)',
+      '  · Dedicated dispute address callout missing',
+      '  · Validation rights block incomplete vs §1006.34(c)',
+      '  · Itemization date not stated',
+      '',
+      'CITE APPENDIX (blurred)',
+      '  12 CFR §1006.34 · model validation notice elements',
+      '  Educational pins only — not legal advice',
+      '',
+      'EXPORT: PDF layout watermarked until unlock'
+    ].join('\n');
+    fullPreview.textContent = lockedBody;
+
+    showToast('Checklist complete · ' + gaps + ' gaps');
+    go('gaps');
+  }
+
+  /* Wire UI */
+  document.getElementById('loadSample').addEventListener('click', () => {
+    letterEl.value = SAMPLE;
+    syncContinue();
+    unlockedSteps.checklist = true;
+    chips.checklist.disabled = false;
+    showToast('Sample loaded · synthetic');
+  });
+
+  document.getElementById('clearLetter').addEventListener('click', () => {
+    letterEl.value = '';
+    syncContinue();
+  });
+
+  letterEl.addEventListener('input', () => {
+    syncContinue();
+    if (letterEl.value.trim()) {
+      unlockedSteps.checklist = true;
+      chips.checklist.disabled = false;
+    }
+  });
+
+  toChecklist.addEventListener('click', () => {
+    unlockedSteps.checklist = true;
+    chips.checklist.disabled = false;
+    renderChecklist();
+    go('checklist');
+  });
+
+  document.getElementById('runChecklist').addEventListener('click', runReport);
+
+  document.getElementById('restart').addEventListener('click', () => {
+    letterEl.value = '';
+    syncContinue();
+    ran = false;
+    unlockedSteps = { sample: true, checklist: false, gaps: false, unlock: false };
+    chips.checklist.disabled = true;
+    chips.gaps.disabled = true;
+    chips.unlock.disabled = true;
+    gapList.innerHTML = '';
+    gapSummary.innerHTML = '';
+    go('sample');
+    showToast('Demo reset');
+  });
+
+  document.querySelectorAll('[data-goto]').forEach(btn => {
+    btn.addEventListener('click', () => go(btn.dataset.goto));
+  });
+
+  document.querySelectorAll('.filters .chip').forEach(ch => {
+    ch.addEventListener('click', () => go(ch.dataset.step));
+  });
+
+  renderChecklist();
+  syncContinue();
+})();
+</script>
 </body>
 </html>
