@@ -11,13 +11,15 @@
   var btnRun = document.getElementById("btn-run");
   var btnClear = document.getElementById("btn-clear");
   var btnPrint = document.getElementById("btn-print");
+  var btnBreakEmpty = document.getElementById("btn-break-empty");
+  var btnBreakPdf = document.getElementById("btn-break-pdf");
   var docketEl = document.getElementById("docket-label");
 
   var PILOT = "https://buy.stripe.com/dRm00j0GG53F8dVfO17Vm03";
   var PACK_MAIL =
     "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20pack%20%2429&body=I%20want%20a%20COLLECT%20QA%20pack%20(%2429).%0A%0ANot%20legal%20advice%20requested.";
   var SEAT_MAIL =
-    "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20module%20attach&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20";
+    "mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20%24249%2Fmo&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(%24249%2Fmo%20validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20";
 
   var activeId = "";
   var lastResults = [];
@@ -152,7 +154,7 @@
       '" target="_blank" rel="noopener noreferrer">Add to Pilot aisle · $499</a>' +
       '<a class="btn btn-ghost" href="' +
       SEAT_MAIL +
-      '">Seat module inquiry</a>' +
+      '">Seat $249/mo (mailto)</a>' +
       '<a class="btn btn-ghost" href="' +
       PACK_MAIL +
       '">Pack $29 (mailto)</a>' +
@@ -212,7 +214,7 @@
     }
     var text = normalize(noticeEl.value);
     if (!text.trim()) {
-      refuseOnly("No notice text. Load a queue slip, paste, or upload .txt — we will not invent a blotter.");
+      refuseOnly("DP-02 · empty paste refused. Load a queue slip, paste, or upload .txt — we will not invent a blotter. The desk held. That is resilience, not a crash.");
       return;
     }
     var results = engine.runChecks(text);
@@ -255,7 +257,7 @@
     renderQueue();
     if (/\.pdf$/i.test(name) || type === "application/pdf") {
       noticeEl.value = "";
-      refuseOnly("PDF is not parsed in this MVP (CQ-01). Paste text or upload .txt — refuse over hallucinate.");
+      refuseOnly("DP-02 · PDF refused. Not parsed in this MVP (CQ-01). Paste text or upload .txt — refuse over hallucinate. The desk held. That is resilience, not a crash.");
       return;
     }
     var okType = /^text\//.test(type) || type === "";
@@ -324,9 +326,46 @@
     });
   }
 
+  function showBlotter() {
+    var blotter = document.getElementById("report");
+    if (blotter && blotter.scrollIntoView) {
+      blotter.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }
+
+  function breakEmpty() {
+    noticeEl.value = "";
+    if (fileEl) fileEl.value = "";
+    activeId = "custom";
+    held = {};
+    setDocket("DP-02 · empty paste");
+    renderQueue();
+    run();
+    showBlotter();
+  }
+
+  function breakPdf() {
+    noticeEl.value = "";
+    if (fileEl) fileEl.value = "";
+    activeId = "custom";
+    held = {};
+    setDocket("DP-02 · break.pdf");
+    renderQueue();
+    refuseOnly(
+      "DP-02 · PDF refused. Not parsed in this MVP (CQ-01). Paste text or upload .txt — refuse over hallucinate. The desk held. That is resilience, not a crash."
+    );
+    showBlotter();
+  }
+
+  if (btnBreakEmpty) btnBreakEmpty.addEventListener("click", breakEmpty);
+  if (btnBreakPdf) btnBreakPdf.addEventListener("click", breakPdf);
+
   var params = new URLSearchParams(window.location.search);
   var slip = params.get("slip") || params.get("sample");
-  if (slip === "1" || slip === "gappy") loadItem("gappy");
+  var brk = params.get("break");
+  if (brk === "empty") breakEmpty();
+  else if (brk === "pdf") breakPdf();
+  else if (slip === "1" || slip === "gappy") loadItem("gappy");
   else if (slip === "thin") loadItem("thin");
   else if (slip === "itemization") loadItem("itemization");
 })();

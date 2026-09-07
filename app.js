@@ -32,7 +32,7 @@
       '<a class="btn" href="' +
       PILOT +
       '" target="_blank" rel="noopener noreferrer">Add to Pilot aisle · $499</a>';
-    html += '<a class="btn btn-ghost" href="' + SEAT_MAIL + '">Seat module inquiry</a>';
+    html += '<a class="btn btn-ghost" href="' + SEAT_MAIL + '">Seat $249/mo (mailto)</a>';
     html += "</div></div>";
     return html;
   }

@@ -456,6 +456,69 @@ textarea:focus-visible, button:focus-visible, a:focus-visible {
   color: var(--ink-2);
 }
 
+.playbook-bar {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-2);
+  position: sticky;
+  top: 52px;
+  z-index: 19;
+}
+.playbook-bar .inner {
+  width: min(100% - 2rem, var(--wide));
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  padding: 0.55rem 0;
+}
+.playbook-bar .eyebrow { margin: 0; }
+.playbook-links { display: flex; flex-wrap: wrap; gap: 0.65rem 1rem; }
+.playbook-links a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-2);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.playbook-links a:hover { color: var(--ink); text-decoration: underline; }
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 1rem;
+}
+.compare-table th,
+.compare-table td {
+  border: 1px solid var(--line);
+  padding: 0.7rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+.compare-table th {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: var(--paper-2);
+  color: var(--ink-3);
+}
+.compare-table tr.ours td { background: #faf8f3; }
+.compare-table .who { font-weight: 600; color: var(--ink); }
+
+.break-callout {
+  border: 1px solid var(--ink);
+  background: var(--paper-2);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
 /* footer */
 .site-footer {
   border-top: 1px solid var(--line);
@@ -474,7 +537,8 @@ textarea:focus-visible, button:focus-visible, a:focus-visible {
 
 @media print {
   .site-header, .toolbar, .btn-row, .unlock-cta, .cta-aisle, .site-footer, .nav,
-  .upload-row, .desk-queue, .no-print, .seat-hero .btn-row { display: none !important; }
+  .upload-row, .desk-queue, .no-print, .seat-hero .btn-row, .playbook-bar,
+  .break-callout { display: none !important; }
   body { background: white; }
   .report, .hitl-tray { box-shadow: none; break-inside: avoid; }
   .watermark span { color: rgba(0,0,0,0.12); }

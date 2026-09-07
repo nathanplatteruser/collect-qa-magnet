@@ -35,6 +35,12 @@ The Seat **surface is the module-attach story**. Primary CTA is add-to-cart on t
 - **CQ-03** HITL exception tray + print/PDF export
 - **CQ-04** CTAs — pack mailto / seat module inquiry / Pilot Stripe (primary)
 
+### Demo Playbook (Nathan lock) — `/seat/`
+
+- **DP-01 Compare** — honest table: spreadsheet checklists / AMS letter tools / ACA training vs COLLECT Seat module. Not peacock. Not a separate brand.
+- **DP-02 Break it** — empty paste and PDF upload are supposed to **REFUSE**. That is resilience, not a crash. Buttons on the Seat desk exercise the live path.
+- **DP-03 Status Board fan-out** — **on merge to `main` / Pages hot, ping the Status Board** (Nathan lock). Fan-out: SU-SIB-1 Seat module live at `/seat/`. This README is the reminder; the page is not the board. Do the ping at merge — do not skip it.
+
 ### Out of MVP
 
 AMS write-back · auto-send · CFPB-approved claims · magnet/Seat Stripe · presenting Seat as a competing product
@@ -81,3 +87,7 @@ python3 -m http.server 8765
 Live magnet: https://nathanplatteruser.github.io/collect-qa-magnet/
 
 Seat module: https://nathanplatteruser.github.io/collect-qa-magnet/seat/
+
+### Status Board fan-out (DP-03)
+
+On merge (Pages hot): ping Status Board — SU-SIB-1 COLLECT QA Seat module live, add-to-cart on Pilot $499, pack $29 mailto (Stripe HOLD). Nathan lock. Do not treat a Pages deploy as complete until that fan-out happens.

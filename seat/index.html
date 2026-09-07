@@ -19,6 +19,17 @@
     </div>
   </header>
 
+  <div class="playbook-bar no-print" id="playbook">
+    <div class="inner">
+      <p class="eyebrow">Demo Playbook · Nathan lock</p>
+      <nav class="playbook-links" aria-label="Demo Playbook">
+        <a href="#compare">DP-01 Compare</a>
+        <a href="#break">DP-02 Break it</a>
+        <a href="#status-board">DP-03 Status Board</a>
+      </nav>
+    </div>
+  </div>
+
   <main>
     <section class="hero seat-hero">
       <div class="wrap-wide">
@@ -32,7 +43,7 @@
         </p>
         <div class="btn-row">
           <a class="btn" href="https://buy.stripe.com/dRm00j0GG53F8dVfO17Vm03" target="_blank" rel="noopener noreferrer">Add to Pilot aisle · $499</a>
-          <a class="btn btn-ghost" href="mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20module%20attach&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20">Seat module inquiry</a>
+          <a class="btn btn-ghost" href="mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20%24249%2Fmo&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(%24249%2Fmo%20validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20">Seat $249/mo (mailto)</a>
         </div>
         <div class="rail" style="margin-top:1.15rem">
           <strong>Hard rails.</strong>
@@ -43,8 +54,71 @@
       </div>
     </section>
 
-    <section class="section" id="desk" style="border-top:0;padding-top:0">
+    <section class="section" id="compare">
       <div class="wrap-wide">
+        <p class="eyebrow">DP-01 · honest compare · not a separate brand</p>
+        <h2>What this module is next to — not above</h2>
+        <p class="lede" style="margin-bottom:0.25rem">
+          Spreadsheets, AMS letter tools, and ACA training already do real work.
+          COLLECT QA Seat does not peacock over them and is not a new brand.
+          It is the SettleUp hygiene desk that attaches to Pilot.
+        </p>
+        <div style="overflow-x:auto">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col">On the desk today</th>
+                <th scope="col">What it already does</th>
+                <th scope="col">Honest limit</th>
+                <th scope="col">Seat module (this page)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="who">Spreadsheet checklists</td>
+                <td>Cheap, officer-owned, no vendor lock.</td>
+                <td>Rows drift. Easy to skip. No cited blotter on <em>this</em> draft.</td>
+                <td>Same job, live on the Pilot aisle — not a prettier spreadsheet product.</td>
+              </tr>
+              <tr>
+                <td class="who">AMS letter tools</td>
+                <td>Templates live in the system of record.</td>
+                <td>SoR is not an exception tray. Seat does not write back.</td>
+                <td>We attach hygiene. We do not replace the AMS.</td>
+              </tr>
+              <tr>
+                <td class="who">ACA / industry training</td>
+                <td>People learn the rule.</td>
+                <td>Class is not this week’s notice. Memory fades.</td>
+                <td>HITL holds gaps after class ends. Still not legal advice.</td>
+              </tr>
+              <tr class="ours">
+                <td class="who">COLLECT QA Seat</td>
+                <td>Cited Reg&nbsp;F gaps · REFUSE when facts are missing · HITL tray.</td>
+                <td>Heuristic only. No AMS write-back. No auto-send. No CFPB-approved claim.</td>
+                <td>SettleUp suite module. Add-to-cart on Pilot — not a competing brand.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="break">
+      <div class="wrap-wide">
+        <div class="break-callout">
+          <p class="eyebrow" style="margin:0 0 0.4rem">DP-02 · breakable path · refuse is the feature</p>
+          <h2 style="margin-bottom:0.45rem">Try to break it. The desk should hold.</h2>
+          <p class="small muted" style="margin:0 0 0.85rem">
+            Empty paste and PDF upload are supposed to <strong>REFUSE</strong> — loud, no invented
+            amounts or cites. That is resilience, not a crash. Thin queue slip NB-1041 does the same.
+          </p>
+          <div class="btn-row" style="margin:0">
+            <button type="button" class="btn" id="btn-break-empty">Break: empty paste</button>
+            <button type="button" class="btn btn-ghost" id="btn-break-pdf">Break: PDF upload</button>
+            <a class="btn btn-ghost" href="?slip=thin">Break: thin slip</a>
+          </div>
+        </div>
         <div class="desk">
           <aside class="desk-queue">
             <label class="field-label">Queue</label>
@@ -110,7 +184,7 @@
               Add to Pilot aisle · $499
             </a>
             <a class="btn btn-ghost" href="mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20module%20attach&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20">
-              Seat module inquiry
+              Seat $249/mo (mailto)
             </a>
           </div>
           <div class="price-card">
@@ -126,7 +200,7 @@
               Add to Pilot aisle · $499
             </a>
             <a class="btn btn-ghost" href="mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20Seat%20module%20attach&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20">
-              Seat module inquiry
+              Seat $249/mo (mailto)
             </a>
           </div>
           <div class="price-card">
@@ -156,6 +230,18 @@
             This is an assumption, not a guarantee, not a kill metric.
           </p>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="status-board">
+      <div class="wrap">
+        <p class="eyebrow">DP-03 · Status Board fan-out</p>
+        <h2>On merge, ping the Status Board</h2>
+        <p class="lede">
+          When this PR merges and Pages is hot, fan-out a Status Board ping (Nathan lock).
+          That ping is the merge ritual — this page is not the board. README names the
+          fan-out so it is not forgotten.
+        </p>
       </div>
     </section>
 
