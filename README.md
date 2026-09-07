@@ -84,3 +84,7 @@ gh repo create collect-qa-magnet --public --source=. --remote=origin --push
 ## Denver / CoS note
 
 Denver narrative = SettleUp Level-4 + this one magnet. Do not start SERVICE/TITLE demos until COLLECT sample + checkout path is filed.
+
+## Checkout (Wave A T1)
+- Magnet pack: **mailto $29** — magnet Stripe **HOLD**
+- Upsell: SettleUp Pilot live https://buy.stripe.com/dRm00j0GG53F8dVfO17Vm03
