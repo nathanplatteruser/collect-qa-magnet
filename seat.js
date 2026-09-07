@@ -67,12 +67,12 @@
   function renderHitl(results, verdict) {
     if (!hitlEl) return;
     var rows = exceptions(results);
-    if (!results.length && (!verdict || verdict.kind === "refuse")) {
+    var html = "";
+    if (!results.length && !verdict) {
       hitlEl.innerHTML =
         '<p class="small muted" style="margin:0">No exceptions yet. Run a slip — missing facts become a human hold, not an invented fill.</p>';
       return;
     }
-    var html = "";
     if (verdict) {
       html +=
         '<div class="hitl-verdict kind-' +
