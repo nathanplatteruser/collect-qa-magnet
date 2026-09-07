@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>COLLECT QA — Run checklist</title>
-  <meta name="description" content="Paste validation-notice text. Get a watermarked Reg F checklist gap report. Not legal advice." />
+  <meta name="description" content="Paste or upload validation-notice text. Get a watermarked Reg F checklist gap report. Not legal advice. Pack $29 mailto." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,6 +12,7 @@
     <div class="inner">
       <a class="mark" href="index.html">COLLECT QA <span class="code">TAIL / COLLECT</span></a>
       <nav class="nav" aria-label="Primary">
+        <a href="seat/">Seat</a>
         <a href="index.html#pricing">Pricing</a>
         <a href="index.html#disclaimer">Disclaimer</a>
       </nav>
@@ -20,7 +21,7 @@
 
   <main class="wrap-wide">
     <div style="padding-top:1.75rem">
-      <p class="eyebrow">Tool · demo mode</p>
+      <p class="eyebrow">Tool · demo mode · CQ-01 / CQ-02</p>
       <h1 style="font-size:clamp(1.6rem,3vw,2.1rem)">Validation-notice gap checklist</h1>
       <p class="lede" style="font-size:1rem">
         Heuristic text scan vs items framed from 12&nbsp;CFR&nbsp;1006.34 and Model Form&nbsp;B-1 (Appendix&nbsp;B).
@@ -28,7 +29,7 @@
       </p>
       <div class="rail" style="margin-top:1rem">
         <strong>Not legal advice.</strong> Gaps are checklist prompts with public cite labels — not counsel conclusions.
-        Confirm live text on eCFR. We do not claim your notice is compliant.
+        Confirm live text on eCFR. We do not claim your notice is compliant. Outbound hygiene only — not a dispute-letter gate.
       </div>
     </div>
 
@@ -36,6 +37,11 @@
       <div>
         <label class="field-label" for="notice">Validation notice text</label>
         <textarea id="notice" spellcheck="false" placeholder="Paste draft validation-notice text here…"></textarea>
+        <div class="upload-row">
+          <label class="btn btn-ghost file-btn" for="notice-file">Upload .txt (CQ-01)</label>
+          <input id="notice-file" type="file" accept=".txt,.text,.md,.html,.htm,.csv,text/plain" />
+          <span class="small muted">Text only. PDF is refused.</span>
+        </div>
         <div class="toolbar">
           <button type="button" class="btn" id="btn-run">Run checklist</button>
           <button type="button" class="btn btn-ghost" id="btn-sample">Load sample letter</button>
@@ -61,12 +67,13 @@
 
   <footer class="site-footer">
     <div class="inner">
-      <div>COLLECT QA demo · <a href="mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20pack%20%28%2419%E2%80%9349%29">Unlock pack $19–49</a></div>
-      <div>Not legal advice · Watermarked until pack purchase</div>
+      <div>COLLECT QA demo · <a href="mailto:settleupcollections@polsia.app?subject=COLLECT%20QA%20pack%20%2429">Unlock pack $29</a> · <a href="https://buy.stripe.com/dRm00j0GG53F8dVfO17Vm03" target="_blank" rel="noopener noreferrer">Pilot aisle $499</a></div>
+      <div>Not legal advice · Sibling Stripe HOLD · Watermarked until pack purchase</div>
     </div>
   </footer>
 
   <script src="sample.js"></script>
+  <script src="checklist.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
