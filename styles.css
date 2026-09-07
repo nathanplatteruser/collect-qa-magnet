@@ -439,6 +439,36 @@ textarea:focus-visible, button:focus-visible, a:focus-visible {
   color: var(--ink-2);
 }
 
+/* Copycats & pushback — Brand SoT §5 (paper/ink cards) */
+.snakes-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-top: 1.25rem;
+}
+@media (min-width: 720px) {
+  .snakes-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+.snake-card {
+  background: #faf8f3;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 1.35rem 1.4rem;
+}
+.snake-card h3 { margin-bottom: 0.75rem; }
+.snake-card h4 {
+  font-size: 1rem;
+  margin: 1.05rem 0 0.4rem;
+}
+.snake-card h4:first-of-type { margin-top: 0.15rem; }
+.snake-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--ink-2);
+  font-size: 0.92rem;
+}
+.snake-card li + li { margin-top: 0.35rem; }
+
 .playbook-bar {
   border-bottom: 1px solid var(--line);
   background: var(--paper-2);
