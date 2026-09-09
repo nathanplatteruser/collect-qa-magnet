@@ -15,11 +15,10 @@
   var btnBreakPdf = document.getElementById("btn-break-pdf");
   var docketEl = document.getElementById("docket-label");
 
-  var PILOT = "https://buy.stripe.com/dRm00j0GG53F8dVfO17Vm03";
   var PACK_MAIL =
     "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20pack%20%2429&body=I%20want%20a%20COLLECT%20QA%20pack%20(%2429).%0A%0ANot%20legal%20advice%20requested.";
   var SEAT_MAIL =
-    "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20Seat%20%24249%2Fmo&body=I%20want%20to%20attach%20COLLECT%20QA%20Seat%20(%24249%2Fmo%20validation%20hygiene%20module)%20to%20SettleUp%20Pilot.%0A%0ACompany%3A%20%0AContact%3A%20";
+    "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20seat%20%24249%2Fmo&body=I%20want%20the%20COLLECT%20QA%20seat%20at%20%24249%2Fmo.%0A%0ACompany%3A%20%0AContact%3A%20%0A%0ANot%20legal%20advice%20requested.%20Human%20owns%20Send.";
 
   var activeId = "";
   var lastResults = [];
@@ -146,18 +145,15 @@
   function aisleHtml() {
     return (
       '<div class="cta-aisle no-print">' +
-      '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · add-on module · Pilot aisle</div>' +
-      "<p class=\"small muted\" style=\"margin:0 0 0.75rem\">Primary: add this hygiene module to SettleUp Pilot. Seat inquiry is optional. Pack $29 is mailto (magnet Stripe HOLD).</p>" +
+      '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · COLLECT QA seat</div>' +
+      "<p class=\"small muted\" style=\"margin:0 0 0.75rem\">The ask is the COLLECT QA seat. Pack $29 is the sample (mailto, magnet Stripe HOLD). Not legal advice. Human owns Send.</p>" +
       '<div class="btn-row" style="margin:0">' +
       '<a class="btn" href="' +
-      PILOT +
-      '" target="_blank" rel="noopener noreferrer">Add to Pilot aisle · $499</a>' +
-      '<a class="btn btn-ghost" href="' +
       SEAT_MAIL +
-      '">Seat $249/mo (mailto)</a>' +
+      '">COLLECT QA seat · $249/mo</a>' +
       '<a class="btn btn-ghost" href="' +
       PACK_MAIL +
-      '">Pack $29 (mailto)</a>' +
+      '">Pack $29 sample</a>' +
       "</div></div>"
     );
   }
