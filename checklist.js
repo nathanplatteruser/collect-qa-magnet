@@ -239,6 +239,11 @@
       }
     }
 
+    if ((check.id === "current_amount" || check.id === "amount_on_itemization") && !/\$\s*\d[\d,]*(?:\.\d{2})?/.test(text)) {
+      status = "missing";
+      note = "No system-of-record dollar in the paste. Do not invent the dollar.";
+    }
+
     if (check.id === "current_creditor" && /current creditor is/i.test(text) && status === "missing") {
       status = "weak";
       note = "Mentions current creditor; confirm exact (c)(2)(v) labeling.";
@@ -305,7 +310,18 @@
       return {
         kind: "refuse",
         stamp: "REFUSE",
-        why: "Sample is too thin. Facts are missing — refuse over hallucinate. Paste a fuller draft or load a queue slip.",
+        why: "Sample is too thin. Facts are missing. Refuse over hallucinate. Paste a fuller draft or load a queue slip.",
+      };
+    }
+
+    var hasDollar = /\$\s*\d[\d,]*(?:\.\d{2})?/.test(trimmed);
+    var hasAccount = /\b(account|acct\.?|file\s*(?:no\.?|number|#)|docket)\b/i.test(trimmed);
+    var hasCreditor = /\bcurrent creditor is\b/i.test(trimmed);
+    if (!hasDollar || (!hasAccount && !hasCreditor)) {
+      return {
+        kind: "refuse",
+        stamp: "REFUSE",
+        why: "Paste has no system-of-record facts. Do not invent the dollar. A lit-up checklist is not a gate.",
       };
     }
 
@@ -321,7 +337,7 @@
           missingCrit.length +
           " of " +
           CRITICAL_IDS.length +
-          " core rows). Human-in-the-loop required — we will not fill them in.",
+          " core rows). Human-in-the-loop required. We will not fill them in.",
       };
     }
 

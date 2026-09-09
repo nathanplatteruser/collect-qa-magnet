@@ -69,7 +69,7 @@
         verdict.stamp +
         "</span><p>" +
         verdict.why +
-        "</p></div>";
+        "</p><p>A lit-up checklist is not a gate. Letter-word rows do not clear Send.</p></div>";
     }
     html += '<div class="score-row">';
     html += '<span class="chip gap">' + sc.gaps + " gaps</span>";

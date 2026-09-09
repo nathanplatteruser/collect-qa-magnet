@@ -150,6 +150,20 @@ h3 { font-size: 1.1rem; margin: 0 0 0.4rem; }
   font-weight: 600;
   color: var(--ink);
 }
+.hero-class {
+  margin: 0 0 0.9rem;
+  max-width: 40rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.ask-honesty {
+  margin: 0.85rem 0 0;
+  max-width: 38rem;
+  font-weight: 600;
+  color: var(--ink);
+}
 .fold-fn {
   margin: 0;
   padding-left: 1.1rem;
