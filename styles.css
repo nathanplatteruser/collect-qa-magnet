@@ -127,6 +127,36 @@ h3 { font-size: 1.1rem; margin: 0 0 0.4rem; }
 
 /* —— sections —— */
 .hero { padding: 3.25rem 0 2.5rem; }
+
+/* Round-1 fold: comparison beside the hero ask */
+.hero-fold {
+  display: grid;
+  gap: 1.15rem;
+  margin-top: 1.25rem;
+  align-items: start;
+}
+@media (min-width: 860px) {
+  .hero-fold { grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr); }
+}
+.hero-ask .btn-row { margin-top: 0; }
+.fold-compare {
+  border: 1px solid var(--line-strong);
+  background: #fffefb;
+  padding: 0.95rem 1rem 1rem;
+}
+.fold-compare .eyebrow { margin-bottom: 0.35rem; }
+.fold-line {
+  margin: 0 0 0.55rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.fold-fn {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+.fold-fn li { margin: 0.28rem 0; }
 .section { padding: 2.25rem 0; border-top: 1px solid var(--line); }
 .panel {
   background: #faf8f3;

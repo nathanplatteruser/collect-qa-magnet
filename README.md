@@ -17,7 +17,7 @@ The Seat **surface is the module-attach story**. Primary CTA is add-to-cart on t
 | SKU | Role | Checkout |
 |-----|------|----------|
 | Pack **$29** | Magnet funnel | mailto `nathanplatter@gmail.com` — magnet Stripe **HOLD** |
-| Seat **$249/mo** | Optional add-on module (band was $199–399) | mailto inquiry — not a competing product |
+| Seat **$249/mo** | The ask. Old price band retired. | mailto inquiry. Not a competing product. |
 | SettleUp Pilot **$499** | Primary aisle / add-to-cart | live [Pilot Payment Link](https://buy.stripe.com/dRm00j0GG53F8dVfO17Vm03) |
 
 **Magnet Stripe HOLD** on the $29 pack. No COLLECT pack or Seat Payment Link. Live Stripe is Pilot only.
