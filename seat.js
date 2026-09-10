@@ -145,7 +145,7 @@
     return (
       '<div class="cta-aisle no-print">' +
       '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · Book intro</div>' +
-      "<p class=\"small muted\" style=\"margin:0 0 0.75rem\">Public list prices stay off until after intro. Magnet Stripe HOLD. Not legal advice. Human owns Send.</p>" +
+      "<p class=\"small muted\" style=\"margin:0 0 0.75rem\">Book intro or email Nathan. Magnet Stripe HOLD. Not legal advice. Human owns Send.</p>" +
       '<div class="btn-row" style="margin:0">' +
       '<a class="btn" href="' +
       BOOK_INTRO +

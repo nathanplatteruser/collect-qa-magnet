@@ -10,23 +10,22 @@ Pain = **outbound validation-notice / itemization hygiene**, attached to the Pil
 
 ## SU-SIB-1. Seat as Pilot add-on
 
-Monthly **Seat** desk at [`/seat/`](https://nathanplatteruser.github.io/collect-qa-magnet/seat/) (GitHub Pages path). Paper/ink blotter matching this magnet. HITL on exceptions. Loud **REFUSE** / GAP when facts are missing (refuse-over-hallucinate).
+**Seat** desk at [`/seat/`](https://nathanplatteruser.github.io/collect-qa-magnet/seat/) (GitHub Pages path). Paper/ink blotter matching this magnet. HITL on exceptions. Loud **REFUSE** / GAP when facts are missing (refuse-over-hallucinate).
 
-The Seat **surface is the module-attach story**. Primary CTA is **Book intro**. Seat mailto is optional inquiry. Magnet Stripe **HOLD**. No public list prices.
+The Seat **surface is the module-attach story**. Primary CTA is **Book intro**. Seat mailto is optional inquiry. Magnet Stripe **HOLD**.
 
 | Path | Role | Next step |
 |-----|------|----------|
-| Book intro | The ask until prices unlock | [calendly.com/nathanplatter](https://calendly.com/nathanplatter) |
+| Book intro | The ask | [calendly.com/nathanplatter](https://calendly.com/nathanplatter) |
 | Email Nathan | Same intro path by mail | mailto `nathanplatter@gmail.com` |
 | Free sample | Watermarked demo | `/app.html` |
 
-**P0 PRICE LOCK (Nathan 2026-09-10).** No public dollar prices, pack prices, Pilot list price, or Soft ROI dollars on this magnet. No `buy.stripe.com` CTAs. No invented prices. Magnet Stripe stays **HOLD**.
+**P0 PRICE LOCK (Nathan 2026-09-10).** No pack dollars. No Pilot dollars. No Soft ROI that implies what Nathan charges. Public ask is Book intro / Calendly / mailto only. No `buy.stripe.com` CTAs. No invented prices. Magnet Stripe stays **HOLD**.
 
-### Soft ROI (locked off the magnet)
+### Soft ROI
 
-- Soft ROI dollars stay off public pages until after intro
-- Do not put ROI multipliers in the magnet hero or Seat lede
-- Do not invent replacement prices to fill the hole
+- Off the public magnet. Do not publish a return story that implies what Nathan charges.
+- Do not invent replacement prices to fill the hole.
 
 ### MVP Eng tickets
 
@@ -60,11 +59,11 @@ python3 -m http.server 8765
 | File | Role |
 |------|------|
 | `index.html` | Landing: magnet hero, rails, Seat attach story, Book intro |
-| `app.html` | Pack tool: paste / upload / sample to watermarked gap checklist |
+| `app.html` | Sample tool: paste / upload / sample to watermarked gap checklist |
 | `seat/index.html` | Module desk: queue, blotter, HITL, PDF, Book intro |
 | `styles.css` | Paper/ink editorial (LotBeacon / Both Sides family) |
 | `checklist.js` | Shared Reg F heuristic + refuse verdict |
-| `app.js` / `seat.js` | Pack vs Seat shells |
+| `app.js` / `seat.js` | Sample vs Seat shells |
 | `sample.js` | Synthetic letters (intentional gaps; no real PII) |
 
 ## Cite rails
@@ -80,7 +79,7 @@ python3 -m http.server 8765
 - Not an AMS replacement (no write-back)
 - Not auto-send / no consumer mail
 - Seat **attaches** to the Pilot refuse-gate. It does not replace it.
-- Magnet Stripe HOLD. No public Pilot checkout on this magnet.
+- Magnet Stripe HOLD. Book intro / Calendly / mailto only.
 
 ## Publish
 
@@ -90,4 +89,4 @@ Seat module: https://nathanplatteruser.github.io/collect-qa-magnet/seat/
 
 ### Status Board fan-out (DP-03)
 
-On merge (Pages hot): ping Status Board. SU-SIB-1 COLLECT QA Seat module live. Book intro. Magnet Stripe HOLD. No public list prices. Nathan lock. Do not treat a Pages deploy as complete until that fan-out happens.
+On merge (Pages hot): ping Status Board. SU-SIB-1 COLLECT QA Seat module live. Book intro. Magnet Stripe HOLD. Nathan lock. Do not treat a Pages deploy as complete until that fan-out happens.

@@ -23,7 +23,7 @@
     html += '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · Book intro</div>';
     html += '<div class="amount">Book intro</div>';
     html +=
-      '<p class="small muted" style="margin:0.4rem 0 0.85rem">Public list prices stay off until after intro. Magnet Stripe <strong>HOLD</strong>. Not legal advice. Human owns Send.</p>';
+      '<p class="small muted" style="margin:0.4rem 0 0.85rem">Book intro or email Nathan. Magnet Stripe <strong>HOLD</strong>. Not legal advice. Human owns Send.</p>';
     html += '<div class="btn-row" style="margin:0">';
     html += '<a class="btn" href="' + BOOK_INTRO + '">Book intro</a>';
     html += '<a class="btn btn-ghost" href="' + INTRO_MAIL + '">Email Nathan</a>';
