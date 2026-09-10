@@ -15,10 +15,9 @@
   var btnBreakPdf = document.getElementById("btn-break-pdf");
   var docketEl = document.getElementById("docket-label");
 
-  var PACK_MAIL =
-    "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20pack%20%2429&body=I%20want%20a%20COLLECT%20QA%20pack%20(%2429).%0A%0ANot%20legal%20advice%20requested.";
-  var SEAT_MAIL =
-    "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20seat%20%24249%2Fmo&body=I%20want%20the%20COLLECT%20QA%20seat%20at%20%24249%2Fmo.%0A%0ACompany%3A%20%0AContact%3A%20%0A%0ANot%20legal%20advice%20requested.%20Human%20owns%20Send.";
+  var BOOK_INTRO = "https://calendly.com/nathanplatter";
+  var INTRO_MAIL =
+    "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20intro&body=I%20want%20to%20book%20a%20COLLECT%20QA%20intro.%0A%0ACompany%3A%20%0AContact%3A%20%0A%0ANot%20legal%20advice%20requested.%20Human%20owns%20Send.";
 
   var activeId = "";
   var lastResults = [];
@@ -54,7 +53,7 @@
       '">';
     html += '<span class="queue-docket">CUSTOM</span>';
     html += "<strong>Paste or upload your draft</strong>";
-    html += '<span class="small muted">Text only. PDF is refused — we do not parse binaries.</span>';
+    html += '<span class="small muted">Text only. PDF is refused. We do not parse binaries.</span>';
     html += "</button>";
     queueEl.innerHTML = html;
   }
@@ -71,7 +70,7 @@
     var html = "";
     if (!results.length && !verdict) {
       hitlEl.innerHTML =
-        '<p class="small muted" style="margin:0">No exceptions yet. Run a slip — missing facts become a human hold, not an invented fill.</p>';
+        '<p class="small muted" style="margin:0">No exceptions yet. Run a slip. Missing facts become a human hold, not an invented fill.</p>';
       return;
     }
     if (verdict) {
@@ -145,15 +144,15 @@
   function aisleHtml() {
     return (
       '<div class="cta-aisle no-print">' +
-      '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · COLLECT QA seat</div>' +
-      "<p class=\"small muted\" style=\"margin:0 0 0.75rem\">The ask is the COLLECT QA seat. Pack $29 is the sample (mailto, magnet Stripe HOLD). Not legal advice. Human owns Send.</p>" +
+      '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · Book intro</div>' +
+      "<p class=\"small muted\" style=\"margin:0 0 0.75rem\">Public list prices stay off until after intro. Magnet Stripe HOLD. Not legal advice. Human owns Send.</p>" +
       '<div class="btn-row" style="margin:0">' +
       '<a class="btn" href="' +
-      SEAT_MAIL +
-      '">COLLECT QA seat · $249/mo</a>' +
+      BOOK_INTRO +
+      '">Book intro</a>' +
       '<a class="btn btn-ghost" href="' +
-      PACK_MAIL +
-      '">Pack $29 sample</a>' +
+      INTRO_MAIL +
+      '">Email Nathan</a>' +
       "</div></div>"
     );
   }
@@ -210,7 +209,7 @@
     }
     var text = normalize(noticeEl.value);
     if (!text.trim()) {
-      refuseOnly("DP-02 · empty paste refused. Load a queue slip, paste, or upload .txt — we will not invent a blotter. The desk held. That is resilience, not a crash.");
+      refuseOnly("DP-02 · empty paste refused. Load a queue slip, paste, or upload .txt. We will not invent a blotter. The desk held. That is resilience, not a crash.");
       return;
     }
     var results = engine.runChecks(text);
@@ -253,7 +252,7 @@
     renderQueue();
     if (/\.pdf$/i.test(name) || type === "application/pdf") {
       noticeEl.value = "";
-      refuseOnly("DP-02 · PDF refused. Not parsed in this MVP (CQ-01). Paste text or upload .txt — refuse over hallucinate. The desk held. That is resilience, not a crash.");
+      refuseOnly("DP-02 · PDF refused. Not parsed in this MVP (CQ-01). Paste text or upload .txt. Refuse over hallucinate. The desk held. That is resilience, not a crash.");
       return;
     }
     var okType = /^text\//.test(type) || type === "";
@@ -308,7 +307,7 @@
     setDocket("Paste / upload");
     renderQueue();
     reportEl.className = "report empty seat-report";
-    reportEl.innerHTML = "<span>Load a queue slip or paste a draft. Missing facts print as REFUSE / GAP — not as filled-in copy.</span>";
+    reportEl.innerHTML = "<span>Load a queue slip or paste a draft. Missing facts print as REFUSE / GAP, not as filled-in copy.</span>";
     renderHitl([], null);
   });
   if (fileEl) {
@@ -348,7 +347,7 @@
     setDocket("DP-02 · break.pdf");
     renderQueue();
     refuseOnly(
-      "DP-02 · PDF refused. Not parsed in this MVP (CQ-01). Paste text or upload .txt — refuse over hallucinate. The desk held. That is resilience, not a crash."
+      "DP-02 · PDF refused. Not parsed in this MVP (CQ-01). Paste text or upload .txt. Refuse over hallucinate. The desk held. That is resilience, not a crash."
     );
     showBlotter();
   }
