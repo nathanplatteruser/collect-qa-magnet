@@ -9,10 +9,9 @@
   var btnClear = document.getElementById("btn-clear");
   var fileEl = document.getElementById("notice-file");
 
-  var PACK_MAIL =
-    "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20pack%20%2429&body=I%20ran%20the%20demo%20checklist%20and%20want%20a%20paid%20pack%20report%20(%2429).%0A%0ANot%20legal%20advice%20requested.";
-  var SEAT_MAIL =
-    "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20seat%20%24249%2Fmo&body=I%20want%20the%20COLLECT%20QA%20seat%20at%20%24249%2Fmo.%0A%0ACompany%3A%20%0AContact%3A%20%0A%0ANot%20legal%20advice%20requested.%20Human%20owns%20Send.";
+  var BOOK_INTRO = "https://calendly.com/nathanplatter";
+  var INTRO_MAIL =
+    "mailto:nathanplatter@gmail.com?subject=COLLECT%20QA%20intro&body=I%20ran%20the%20demo%20checklist%20and%20want%20to%20book%20a%20COLLECT%20QA%20intro.%0A%0ACompany%3A%20%0AContact%3A%20%0A%0ANot%20legal%20advice%20requested.%20Human%20owns%20Send.";
 
   function normalize(text) {
     return (text || "").replace(/\r\n/g, "\n");
@@ -21,13 +20,13 @@
   function aisleHtml() {
     var html = "";
     html += '<div class="cta-aisle">';
-    html += '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · sample pack · COLLECT QA seat</div>';
-    html += '<div class="amount">COLLECT QA seat $249/mo</div>';
+    html += '<div class="eyebrow" style="margin:0 0 0.35rem">CQ-04 · Book intro</div>';
+    html += '<div class="amount">Book intro</div>';
     html +=
-      '<p class="small muted" style="margin:0.4rem 0 0.85rem">The $29 pack is the sample (mailto · Stripe <strong>HOLD</strong>). The ask is the COLLECT QA seat. Not legal advice. Human owns Send.</p>';
+      '<p class="small muted" style="margin:0.4rem 0 0.85rem">Book intro or email Nathan. Magnet Stripe <strong>HOLD</strong>. Not legal advice. Human owns Send.</p>';
     html += '<div class="btn-row" style="margin:0">';
-    html += '<a class="btn" href="' + SEAT_MAIL + '">COLLECT QA seat · $249/mo</a>';
-    html += '<a class="btn btn-ghost" href="' + PACK_MAIL + '">Pack $29 sample</a>';
+    html += '<a class="btn" href="' + BOOK_INTRO + '">Book intro</a>';
+    html += '<a class="btn btn-ghost" href="' + INTRO_MAIL + '">Email Nathan</a>';
     html += "</div></div>";
     return html;
   }
@@ -109,7 +108,7 @@
     }
     var text = normalize(noticeEl.value);
     if (!text.trim()) {
-      refuseEmpty("No notice text. Paste, upload a .txt, or load the sample — we will not invent a report.");
+      refuseEmpty("No notice text. Paste, upload a .txt, or load the sample. We will not invent a report.");
       return;
     }
     var results = engine.runChecks(text);
@@ -134,7 +133,7 @@
     if (/\.pdf$/i.test(name) || type === "application/pdf") {
       noticeEl.value = "";
       refuseEmpty(
-        "PDF is not parsed in this MVP (CQ-01). Paste text or upload .txt — refuse over hallucinate."
+        "PDF is not parsed in this MVP (CQ-01). Paste text or upload .txt. Refuse over hallucinate."
       );
       return;
     }

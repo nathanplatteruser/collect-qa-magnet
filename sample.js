@@ -39,7 +39,7 @@ window.COLLECT_QA_DESK = [
     id: "gappy",
     docket: "NB-1042",
     label: "Harbor Card — gappy sample",
-    hint: "Same synthetic letter as the magnet pack. Gaps + weak cites.",
+    hint: "Same synthetic letter as the magnet sample. Gaps + weak cites.",
     text: window.COLLECT_QA_SAMPLE,
   },
   {
